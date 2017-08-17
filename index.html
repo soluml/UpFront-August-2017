@@ -154,6 +154,24 @@
         </section>
 
         <section>
+          <h2>So you think you know positioning?</h2>
+        </section>
+
+        <section>
+          <h4 class="classCodeTitle">Did you know that you can center anything with position and transforms?</h4>
+          <div id="centerpos">
+            <div class="srslyCenter">
+              <span>I'm an example! √</span>
+            </div>
+            <pre><code class="html">
+&lt;div class="srslyCenter"&gt;
+  &lt;span&gt;I'm an example! √&lt;/span&gt;
+&lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
           <h2>Thanks!</h2>
         </section>
       </div>
@@ -184,6 +202,15 @@
             el.insertBefore(RevealCSSSnippet({
               cssValue: "@keyframes surpass {\r\n  to { background: blue; }\r\n}\r\n\r\n.surpass {\r\n  animation: 0s surpass;\r\n  animation-fill-mode: both;\r\n}"
             }), el.querySelector('div'));
+
+            el = document.getElementById('centerpos');
+
+            el.insertBefore(RevealCSSSnippet({
+              cssValue: ".srslyCenter {\r\n  position: relative;\r\n  height: 80px;\r\n  background: black;\r\n}\r\n.srslyCenter span {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%,-50%);\r\n}"
+            }), el.querySelector('div'));
+
+
+
           }},
   			]
   		});
