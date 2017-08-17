@@ -136,7 +136,19 @@
           <div id="double">
             <div class="blue red">I'm an example! √</div>
             <pre><code class="html">
-              &lt;div class="blue red"&gt;I'm an example! √&lt;/div&gt;
+&lt;div class="blue red"&gt;I'm an example! √&lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h4 class="classCodeTitle">Did you know that in some browsers you can surpass any specificity?</h4>
+          <div id="surpass">
+            <div class="surpass" style="background:black!important">I'm an example! √</div>
+            <pre><code class="html">
+&lt;div class="surpass" style="background:black!important"&gt;
+  I'm an example! √
+&lt;/div&gt;
             </code></pre>
           </div>
         </section>
@@ -164,9 +176,13 @@
             var el = document.getElementById('double');
 
             el.insertBefore(RevealCSSSnippet({
-              //Default CSS I want automatically loaded in...
-              //Make background red and my specific slide's heading black
               cssValue: ".blue.blue {\r\n  color: blue;\r\n}\r\n\r\n.red {\r\n  color: red;\r\n}"
+            }), el.querySelector('div'));
+
+            el = document.getElementById('surpass');
+
+            el.insertBefore(RevealCSSSnippet({
+              cssValue: "@keyframes surpass {\r\n  to { background: blue; }\r\n}\r\n\r\n.surpass {\r\n  animation: 0s surpass;\r\n  animation-fill-mode: both;\r\n}"
             }), el.querySelector('div'));
           }},
   			]
