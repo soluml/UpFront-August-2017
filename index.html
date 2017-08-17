@@ -94,6 +94,26 @@
         text-align: left;
         width: 100%;
       }
+
+      .srslyFixed {
+        background: black;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        overflow-y: auto;
+      }
+
+      .srslyFixed span {
+        flex: 1 0 100%;
+      }
+
+      .srslyFixed ol {
+        background: white;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        justify-content: space-around;
+      }
     </style>
 	</head>
   <body>
@@ -172,6 +192,34 @@
         </section>
 
         <section>
+          <h4 class="classCodeTitle">Did you know that you can `position:fixed` relative to a container?</h4>
+          <div id="fixedpos">
+            <div class="srslyFixed">
+              <span>I'm an example! √</span>
+              <span>I'm another example! √</span>
+              <span>I'm a third example! √</span>
+              <ol>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ol>
+            </div>
+            <pre><code class="html">
+&lt;div class="srslyFixed"&gt;
+  &lt;span&gt;I'm an example! √&lt;/span&gt;
+  &lt;span&gt;I'm another example! √&lt;/span&gt;
+  &lt;span&gt;I'm a third example! √&lt;/span&gt;
+  &lt;ol&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
           <h2>Thanks!</h2>
         </section>
       </div>
@@ -209,7 +257,11 @@
               cssValue: ".srslyCenter {\r\n  position: relative;\r\n  height: 80px;\r\n  background: black;\r\n}\r\n.srslyCenter span {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%,-50%);\r\n}"
             }), el.querySelector('div'));
 
+            el = document.getElementById('fixedpos');
 
+            el.insertBefore(RevealCSSSnippet({
+              cssValue: ".srslyFixed {\r\n  transform: translateZ(0);\r\n}\r\n.srslyFixed ol {\r\n  position: fixed;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n}"
+            }), el.querySelector('div'));
 
           }},
   			]
