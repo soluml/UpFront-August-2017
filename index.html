@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>So you think you know CSS Pt. I by Benjamin Solum</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+    <style>
+      #introslide {
+        width: 100%;
+        height: 100%;
+        top: 0!important;
+      }
+      #intro {
+        border: 1.8vmax solid transparent;
+        box-sizing: border-box;
+        margin: auto;
+        left: 50%;
+        position: absolute;
+        text-align: left;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        white-space: nowrap;
+        width: 70%;
+      }
+
+      #intro:after {
+        border: inherit;
+        border-color: currentColor;
+        box-sizing: inherit;
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+
+      #intro:before {
+        border: inherit;
+        bottom: 0;
+        content: '';
+        filter: blur(calc(1.8vmax / 4));
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+      }
+      #intro span {
+        font-size: 90%;
+        position: absolute;
+        left: .6em;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #intro strong {
+        bottom: 1em;
+        display: block;
+        font-size: 25%;
+        font-weight: normal;
+        left: 0;
+        letter-spacing: .05em;
+        position: absolute;
+        text-align: center;
+        text-shadow: none;
+        text-transform: none;
+        width: 100%;
+      }
+      .classCodeTitle {
+        text-align: center!important;
+        text-shadow: none;
+      }
+
+      h4 {
+        text-align: left;
+      }
+
+      h4 + ul {
+        display: block;
+        margin-bottom: 1em!important;
+        text-align: left;
+        width: 100%;
+      }
+    </style>
+	</head>
+  <body>
+  	<div class="reveal">
+      <div class="slides">
+        <section id="introslide">
+          <h1 id="intro">
+            <span>So you think<br>you know CSS Pt. I</span>
+            <strong>soluml.github.io/UpFront-August-2017</strong>
+          </h1>
+        </section>
+        <section>
+          <section>
+            <h1><pre class="classCodeTitle"><code>whoami</code></pre></h1>
+            <pre><code class="html" style="white-space: pre-line;">&lt;head&gt;
+              &nbsp;&nbsp;&lt;title&gt;Lead Developer at Xceligent&lt;/title&gt;
+              &nbsp;&nbsp;&lt;meta name="description" content="Work on the CommercialSearch.com team building awesome web apps"&gt;
+              &nbsp;&nbsp;&lt;meta name="twitter:site" content="@soluml"&gt;
+              &nbsp;&nbsp;&lt;meta http-equiv="Content-Type" content="Human/Shawnee,KS"&gt;
+              &nbsp;&nbsp;&lt;meta name="viewport" content="Work on Mac;Play on PC"&gt;
+              &nbsp;&nbsp;&lt;meta name="generator" content="God"&gt;
+              &nbsp;&nbsp;&lt;meta name="author" content="Parents"&gt;
+              &nbsp;&nbsp;&lt;meta name="copyright" content="Wife"&gt;
+              &nbsp;&nbsp;&lt;!--[if IE]&gt;
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="keywords" content="sad"&gt;
+              &nbsp;&nbsp;&lt;![endif]--&gt;
+              &nbsp;&nbsp;&lt;!--[if lt IE 9]&gt;
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="keywords" content="really sad"&gt;
+              &nbsp;&nbsp;&lt;![endif]--&gt;
+            &lt;/head&gt;</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h2>So you think you know Specificity?</h2>
+        </section>
+
+        <section>
+          <h4 class="classCodeTitle">Did you know that you can double up a class name to increase specificity of a selector?</h4>
+          <div id="double">
+            <div class="blue red">I'm an example! √</div>
+            <pre><code class="html">
+              &lt;div class="blue red"&gt;I'm an example! √&lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Thanks!</h2>
+        </section>
+      </div>
+  	</div>
+
+  	<script src="lib/js/head.min.js"></script>
+  	<script src="js/reveal.js"></script>
+  	<script>
+  		// More info https://github.com/hakimel/reveal.js#configuration
+  		Reveal.initialize({
+  			history: true,
+
+  			// More info https://github.com/hakimel/reveal.js#dependencies
+  			dependencies: [
+  				{ src: 'plugin/markdown/marked.js' },
+  				{ src: 'plugin/markdown/markdown.js' },
+  				{ src: 'plugin/notes/notes.js', async: true },
+  				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/reveal-css-snippet/css-snippet.js', callback: function() {
+            var el = document.getElementById('double');
+
+            el.insertBefore(RevealCSSSnippet({
+              //Default CSS I want automatically loaded in...
+              //Make background red and my specific slide's heading black
+              cssValue: ".blue.blue {\r\n  color: blue;\r\n}\r\n\r\n.red {\r\n  color: red;\r\n}"
+            }), el.querySelector('div'));
+          }},
+  			]
+  		});
+  	</script>
+  </body>
+</html>
