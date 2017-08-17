@@ -165,7 +165,7 @@
         </section>
 
         <section>
-          <h2>So you think you know positioning?</h2>
+          <h2>So you think you know Positioning?</h2>
         </section>
 
         <section>
@@ -198,6 +198,20 @@
     Footer
   &lt;/footer&gt;
 &lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>So you think you know Typography?</h2>
+        </section>
+
+        <section>
+          <h4 class="classCodeTitle">Did you know that you can set a min/max font-size with fluid scaling?</h4>
+          <div id="flexfont">
+            <div id="minmaxFont">I'm an example! √</div>
+            <pre><code class="html">
+&lt;div class="minmaxFont"&gt;I'm an example! √&lt;/div&gt;
             </code></pre>
           </div>
         </section>
@@ -246,6 +260,11 @@
               cssValue: ".srslyFixed {\r\n  transform: translateZ(0);\r\n}\r\n.srslyFixed footer {\r\n  position: fixed;\r\n  width: 100%;\r\n  bottom: 0;\r\n}"
             }), el.querySelector('div'));
 
+            el = document.getElementById('flexfont');
+
+            el.insertBefore(RevealCSSSnippet({
+              cssValue: ":root {\r\n  --minSize: 14;\r\n  --maxSize: 26;\r\n  --minViewport: 300;\r\n  --maxViewport: 1600;\r\n}\r\n\r\n#minmaxFont {\r\n  font-size: calc(var(--minSize)*1px);\r\n}\r\n\r\n@media screen and (min-width: 300px) {\r\n  #minmaxFont {\r\n    font-size: calc(calc(var(--minSize)*1px) + (var(--maxSize) - var(--minSize)) * ((100vw - calc(var(--minViewport)*1px)) / (var(--maxViewport) - var(--minViewport))));\r\n  }\r\n}\r\n\r\n@media screen and (min-width: 1600px) {\r\n  #minmaxFont {\r\n    font-size: calc(var(--maxSize)*1px);\r\n  }\r\n}"
+            }), el.querySelector('div'));
           }},
   			]
   		});
